@@ -1,0 +1,27 @@
+{
+  "name": "open-music-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myogif/open-music-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myogif/open-music-api/issues"
+  },
+  "homepage": "https://github.com/myogif/open-music-api#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "dotenv": "^16.0.0",
+    "joi": "^17.6.0",
+    "nanoid": "^3.3.3",
+    "nodemon": "^2.0.15"
+  }
+}
