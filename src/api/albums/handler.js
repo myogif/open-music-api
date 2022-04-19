@@ -3,6 +3,11 @@ const ClientError = require('../../exceptions/ClientError');
 class AlbumHandler {
   constructor(service){
     this._service = service;
+
+    this.postAlbumHandler = this.postAlbumHandler.bind(this);
+    this.getAlbumByIdHandler = this.getAlbumByIdHandler.bind(this);
+    this.putAlbumByIdHandler = this.putAlbumByIdHandler.bind(this);
+    this.deleteAlbumByIdHandler = this.deleteAlbumByIdHandler.bind(this);
     
   }
 
@@ -44,7 +49,7 @@ class AlbumHandler {
   getAlbumByIdHandler(request, h){
     try{
       const{id} = request.params;
-      const album = this._service.getAlbumByIdHandler(id);
+      const album = this._service.getAlbumById(id);
       return {
         status: 'success',
         data:{
@@ -75,6 +80,7 @@ class AlbumHandler {
   putAlbumByIdHandler(request, h){
     try{
       const {id} = request.params;
+      console.log(id);
       
       this._service.editAlbumById(id, request.payload);
 
@@ -89,6 +95,7 @@ class AlbumHandler {
           message: error.message,
         });
         response.code(error.statusCode);
+        return response;
       }
     }
 
@@ -104,7 +111,7 @@ class AlbumHandler {
 
   deleteAlbumByIdHandler(request, h){
     try{
-      const {id} = requiest.params;
+      const {id} = request.params;
       this._service.deleteAlbumById(id);
 
       return {

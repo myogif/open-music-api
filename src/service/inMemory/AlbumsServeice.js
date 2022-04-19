@@ -40,7 +40,7 @@ class albumService{
   }
 
   editAlbumById(id,{name,year}){
-    const album = this.album.findIndex((album) => album.id === id);
+    const index = this._albums.findIndex((album) => album.id === id);
 
     if(index === -1){
       throw new NotFoundError('Gagal memperbarui album. Id tidak ditemukan');
